@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import { GeistSans } from "geist/font/sans";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
@@ -17,6 +18,14 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html className={GeistSans.className} lang="en">
+        <Head>
+        <meta property="og:title" content="Fidelity" />
+          <meta property="og:description" content="Holy trinity of fidelity" />
+          <meta property="og:url" content={"https://fidelity-orcin.vercel.app"} />
+          <meta property="og:image" content={`https://fidelity-orcin.vercel.app/images/og-img.jpg`} />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Fidelity" />
+        </Head>
         <body>
           <Navbar />
           {children}
