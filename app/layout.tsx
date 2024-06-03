@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/navigation/navbar";
 
 export const metadata: Metadata = {
-  title: "Fidelity",
+  title: { default: "Fidelity", template: "%s - Fidelity" },
   description: "Holy trinity of fidelity",
 };
 
