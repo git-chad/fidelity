@@ -3,8 +3,9 @@ import React, { useState, memo } from "react";
 import Masonry from "react-masonry-css";
 import { motion } from "framer-motion";
 import { images } from "@/constants";
+import GridFilters from "../navigation/grid-filters";
 
-const GridOld = () => {
+const Grid = () => {
   const [columns, setColumns] = useState(4);
 
   const handleButtonClick = (value: number) => {
@@ -20,19 +21,20 @@ const GridOld = () => {
 
   return (
     <div>
-      <div className="flex justify-center mb-4 space-x-2">
-        {[1, 2, 3, 4].map((value) => (
-          <button
-            key={value}
-            onClick={() => handleButtonClick(value)}
-            className={`px-4 py-2 rounded ${
-              columns === value ? "bg-zinc-900 text-white" : "bg-zinc-800"
-            }`}
-            aria-label={`Set columns to ${value}`}
-          >
-            {value}
-          </button>
-        ))}
+      <div className="flex w-full justify-between mb-4">
+        <GridFilters/>
+        <div className="flex justify-end mb-4 space-x-2">
+          {[1, 2, 3, 4].map((value) => (
+            <button
+              key={value}
+              onClick={() => handleButtonClick(value)}
+              className={`px-2 py-2 rounded active:scale-125 transition-all ${
+                columns === value ? "bg-zinc-200 text-white" : "bg-zinc-700"
+              }`}
+              aria-label={`Set columns to ${value}`}
+            ></button>
+          ))}
+        </div>
       </div>
       <Masonry
         breakpointCols={breakpointColumnsObj}
@@ -59,4 +61,4 @@ const GridOld = () => {
   );
 };
 
-export default memo(GridOld);
+export default memo(Grid);
